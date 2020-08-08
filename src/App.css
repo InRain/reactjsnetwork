@@ -9,22 +9,3 @@
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
 }
-
-.header {
-    grid-area: hdr;
-    background-color: aqua;
-}
-
-.header img {
-    width: 30px;
-}
-
-.nav {
-    grid-area: nv;
-    background-color: beige;
-}
-
-.content {
-    grid-area: ctx;
-    background-color:blueviolet;
-}
