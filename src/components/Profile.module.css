@@ -1,0 +1,17 @@
+.content {
+    grid-area: ctx;
+    background-color:blueviolet;
+}
+
+.content img {
+    width: fit-content;
+    height: 50px;
+}
+
+.posts{
+
+}
+
+.postItem {
+
+}
