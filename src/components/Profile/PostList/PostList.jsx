@@ -5,8 +5,9 @@ import Post from "./Post/Post";
 const PostList = () => {
     return (
 
-        <div>Post List
-            <div className={classes.posts}>
+        <div className={classes.posts}>
+            <h3>Posts</h3>
+            <div>
                 <Post message ='Hi, how are you'/>
                 <Post message ="it's first post"/>
             </div>
