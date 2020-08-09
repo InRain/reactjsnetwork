@@ -1,3 +1,7 @@
 .descriptionBlock{
     padding: 10px;
 }
+.profileHeader{
+    background: linear-gradient(to left, #f1da36, #fefcea);
+    height: 35px;
+}
