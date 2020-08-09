@@ -1,7 +1,10 @@
 .nav {
     grid-area: nv;
-    background-color: beige;
+    background-color: #9ff0f3;
 }
 .item {
     color: white;
+
+}.item a {
+    font-size: 30px;
 }
