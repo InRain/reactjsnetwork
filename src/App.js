@@ -17,8 +17,6 @@ const App = () => {
                     <Route path='/dialogs' component={Dialogs}/>
                     <Route path='/profile' component={Profile}/>
                 </div>
-
-
             </div>
         </BrowserRouter>
 
