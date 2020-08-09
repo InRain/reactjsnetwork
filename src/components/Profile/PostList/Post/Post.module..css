@@ -1,0 +1,25 @@
+.postItem {
+color:aqua;
+}
+
+.avatar{
+    width: 15%;
+}
+
+.postText{
+    width: 85%;
+}
+.textarea{
+    text-align: right;
+    margin: 0 auto;
+}
+
+.textarea textarea{
+    width: 80%;
+    margin: 0 auto;
+}
+.postButtons{
+    text-align: right;
+    margin: 10px;
+}
+
