@@ -1,36 +1,47 @@
 import React from "react";
 import classes from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
+import Message from "./Message/Message";
+import DialogItem from "./DialogItem/DialogItem";
 
-const DialogItem = (props) => {
+
+let dialogsData = [
+    {id: 1, name: 'Vasya'},
+    {id: 2, name: 'Kolia'},
+    {id: 3, name: 'Sveta'},
+]
+
+let messagesData = [
+    {id: 0, text: "Hi!"},
+    {id: 1, text: "sup!"},
+    {id: 2, text: "How are you?"},
+    {id: 3, text: "fine"},
+]
+
+let messagesView = messagesData.map((elem) => {
     return (
-        <div className={classes.dialog}>
-            <NavLink activeClassName={props.isActive ? classes.active : ''}
-                     to={'/dialogs/' + props.userId}>{props.userName}</NavLink>
-        </div>
-    );
-}
+        <Message text={elem.text}/>
+    )
+});
 
-const Message = (props) => {
-    return(
-        <div className={classes.message}>{props.text}</div>
+let dialogsView = dialogsData.map((elem) => {
+    return (
+        <DialogItem userId={elem.id} userName={elem.name}/>
     );
+});
 
-}
+
+
 
 const Dialogs = () => {
     return (
         <div>
             <div className={classes.dialogs}>
                 <div className={classes.dialogItems}>
-                    <DialogItem userId={'1'} userName={'Vasya'} isActive={true}/>
-                    <DialogItem userId={'2'} userName={'Kolia'} isActive={false}/>
-                    <DialogItem userId={'3'} userName={'Sveta'} isActive={false}/>
+                    {dialogsView}
                 </div>
 
                 <div className={classes.messages}>
-                    <Message text="Hi!"/>
-                    <Message text="Is there anyone?"/>
+                    {messagesView}
                 </div>
             </div>
         </div>
