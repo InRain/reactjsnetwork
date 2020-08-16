@@ -14,14 +14,72 @@
 
 }
 
-.dialog {
+.dialog a {
+    font-size: 20px;
+    color: #ff0000;
+    padding: 10px;
+}
 
+.dialog {
+    vertical-align: central;
 }
 
 .messages {
-padding: 10px;
+    border: aqua outset 5px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #b4f5f5;
 }
 
-.messages.message {
-
+.avatarSmall {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
 }
+
+.dialogItem {
+    max-height: 256px;
+    margin: 0px 4px;
+    padding: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.messageBox {
+    border: blue solid 2px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #e3ffff;
+}
+
+.newMessage {
+    border: #00c2ff solid 2px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #e3ffff;
+}
+
+.newMessageHeader {
+    font-size: 12px;
+    color: blue;
+}
+
+.newMessageControls {
+    padding-top: 15px;
+}
+
+.newMessageControls textarea {
+    width: 100%;
+    height: 80px;
+}
+
+.newMessageControls button {
+    margin: 0 auto;
+    text-align: right;
+}
+
+

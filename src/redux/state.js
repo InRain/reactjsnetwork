@@ -1,3 +1,8 @@
+
+let renderEntireTree = () =>{
+    //this is the stub function for observer
+}
+
 let messagesData = [
     {id: 0, text: "Hi!"},
     {id: 1, text: "sup!"},
@@ -21,6 +26,20 @@ let state = {
     dialogs: dialogsData,
     messages: messagesData,
     posts: postData
+}
+
+export const addPost = (postMessage) =>{
+    let newPost ={
+        id: 5,
+        message: postMessage,
+        likesCount:0
+    };
+    state.posts.push(newPost);
+    renderEntireTree(state);
+}
+
+export const subscribe =(observer) =>{
+    renderEntireTree=observer;
 }
 
 export default state;

@@ -27,8 +27,17 @@ const Dialogs = (props) => {
 
                 <div className={classes.messages}>
                     {messagesView}
+                    <div className={classes.newMessage}>
+                        <div className={classes.newMessageHeader}>New message</div>
+                        <div className={classes.newMessageControls}>
+                            <div><textarea className={classes.newMessageTextArea} placeholder="enter message here"></textarea></div>
+                            <button>Send</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
     );
 
