@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+
 let store = {
     getState() {
         return this._state;
@@ -46,14 +49,25 @@ let store = {
     },
 
     dispatch(action){
-        if(action.type === 'ADD_POST'){
+        if(action.type === ADD_POST){
             this._addPost();
-        } else if(action.type === 'UPDATE_NEW_POST_TEXT'){
+        } else if(action.type === UPDATE_NEW_POST_TEXT){
             this._updateNewPostText(action.message)
         }
-
     }
+}
 
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+}
+
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        message: text
+    }
 }
 
 export default store;

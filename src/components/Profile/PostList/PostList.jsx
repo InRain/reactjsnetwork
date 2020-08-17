@@ -1,25 +1,27 @@
 import React from "react";
 import classes from './PostList.module.css';
 import Post from "./Post/Post";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+
 
 
 const PostList = (props) => {
 
-    let postsView = props.postList.map((elem) =>{
-        return(
-            <Post message = {elem.message}/>
+    let postsView = props.postList.map((elem) => {
+        return (
+            <Post message={elem.message}/>
         )
     });
 
     let newPostText = React.createRef();
 
     let addPost = () => {
-        props.dispatch({type:'ADD_POST'});
+        props.dispatch(addPostActionCreator());
     }
 
-    let onPostChange = () =>{
+    let onPostChange = () => {
         let text = newPostText.current.value;
-        props.dispatch({type:'UPDATE_NEW_POST_TEXT', message:text});
+        props.dispatch(updateNewPostTextActionCreator(text));
 
     }
 
@@ -27,7 +29,7 @@ const PostList = (props) => {
         <div className={classes.posts}>
             <h3>Posts</h3>
             <div className={classes.postContainer}>
-                <div >
+                <div>
                     <textarea
                         ref={newPostText}
                         className={classes.postText}
