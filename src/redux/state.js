@@ -1,6 +1,7 @@
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-
+const SEND_MESSAGE = 'SEND_MESSAGE';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 let store = {
     getState() {
         return this._state;
@@ -22,7 +23,8 @@ let store = {
             {id: 1, message: 'Omg!!!!', likesCnt: 1},
             {id: 2, message: 'WTF', likesCnt: 3},
         ],
-        newPostText: 'new post text'
+        newPostText: 'new post text',
+        newMessageBody: ""
     },
 
     renderEntireTree() {
@@ -38,6 +40,15 @@ let store = {
         this._state.posts.push(newPost);
         this.renderEntireTree(this._state);
     },
+    _sendMessage() {
+        let newMessage = {
+            id: 5,
+            text: this._state.newMessageBody,
+        };
+        console.log(newMessage)
+        this._state.messages.push(newMessage);
+        this.renderEntireTree(this._state);
+    },
 
     subscribe(observer) {
         this.renderEntireTree = observer;
@@ -47,13 +58,23 @@ let store = {
         this._state.newPostText = newText;
         this.renderEntireTree(this._state);
     },
+    _updateNewMessageBody(newBody) {
+        this._state.newMessageBody = newBody;
+        this.renderEntireTree(this._state);
+    },
 
-    dispatch(action){
-        if(action.type === ADD_POST){
+    dispatch(action) {
+        if (action.type === ADD_POST) {
             this._addPost();
-        } else if(action.type === UPDATE_NEW_POST_TEXT){
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._updateNewPostText(action.message)
+        }else if(action.type === SEND_MESSAGE){
+            this._sendMessage();
         }
+        else if (action.type = UPDATE_NEW_MESSAGE_BODY) {
+            this._updateNewMessageBody(action.messageText);
+        }
+
     }
 }
 
@@ -67,6 +88,19 @@ export const updateNewPostTextActionCreator = (text) => {
     return {
         type: UPDATE_NEW_POST_TEXT,
         message: text
+    }
+}
+
+export const sendMessageActionCreator = () =>{
+    return{
+        type: SEND_MESSAGE
+    }
+}
+
+export const updateNewMessageBodyActionCreator = (messageText) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_BODY,
+        messageText: messageText
     }
 }
 
