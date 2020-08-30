@@ -1,3 +1,6 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SEND_MESSAGE = 'SEND_MESSAGE';
@@ -64,17 +67,9 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addPost();
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.message)
-        }else if(action.type === SEND_MESSAGE){
-            this._sendMessage();
-        }
-        else if (action.type = UPDATE_NEW_MESSAGE_BODY) {
-            this._updateNewMessageBody(action.messageText);
-        }
-
+        this._state = profileReducer(this._state, action);
+        this._state = dialogsReducer(this._state, action);
+        this.renderEntireTree(this._state);
     }
 }
 
@@ -91,8 +86,8 @@ export const updateNewPostTextActionCreator = (text) => {
     }
 }
 
-export const sendMessageActionCreator = () =>{
-    return{
+export const sendMessageActionCreator = () => {
+    return {
         type: SEND_MESSAGE
     }
 }
