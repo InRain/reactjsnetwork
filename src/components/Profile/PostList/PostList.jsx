@@ -1,28 +1,21 @@
 import React from "react";
 import classes from './PostList.module.css';
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/store";
-
-
 
 const PostList = (props) => {
-
-    let postsView = props.postList.map((elem) => {
+    let postsView = props.posts.map((elem) => {
         return (
             <Post message={elem.message}/>
         )
     });
 
-    let newPostText = React.createRef();
-
     let addPost = () => {
-        props.dispatch(addPostActionCreator());
+        props.addPost();
     }
 
-    let onPostChange = () => {
-        let text = newPostText.current.value;
-        props.dispatch(updateNewPostTextActionCreator(text));
-
+    let onPostChange = (event) => {
+        let text = event.target.value;
+        props.updatePostText(text);
     }
 
     return (
@@ -31,7 +24,6 @@ const PostList = (props) => {
             <div className={classes.postContainer}>
                 <div>
                     <textarea
-                        ref={newPostText}
                         className={classes.postText}
                         placeholder="write your text here"
                         value={props.newPostText}

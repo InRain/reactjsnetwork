@@ -82,7 +82,7 @@ export const addPostActionCreator = () => {
 export const updateNewPostTextActionCreator = (text) => {
     return {
         type: UPDATE_NEW_POST_TEXT,
-        message: text
+        newText: text
     }
 }
 
