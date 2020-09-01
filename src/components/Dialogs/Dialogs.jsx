@@ -23,11 +23,11 @@ const Dialogs = (props) => {
 
     const messageTextChange = () =>{
         let text = messageTextRef.current.value;
-        props.dispatch(updateNewMessageBodyActionCreator(text));
+        props.updateMessageText(text);
     }
 
     const sendMessage = () =>{
-        props.dispatch(sendMessageActionCreator());
+        props.sendMessage();
     }
 
     return (
